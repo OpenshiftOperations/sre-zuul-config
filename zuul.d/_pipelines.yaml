@@ -13,7 +13,7 @@
       sqlreporter:
     failure:
       smtp:
-        from: "zuul@sftests.com"
+        from: "zuul@ci.ops.openshift.com"
         to: "root@localhost"
         subject: '[Zuul] Job failed in periodic pipeline: {change.project}'
       sqlreporter:

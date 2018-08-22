@@ -9,8 +9,8 @@
       ara_report_type: database
       ara_report_path: ara-report
     - role: log-classify
-      logclassify_model_store_url: https://sftests.com/logs/classifiers
-      logclassify_zuul_web: https://sftests.com/zuul/api/tenant/local
+      logclassify_model_store_url: https://ci.ops.openshift.com/logs/classifiers
+      logclassify_zuul_web: https://ci.ops.openshift.com/zuul/api/tenant/local
       logclassify_model_dir: /var/lib/log-classify
       logclassify_local_dir: "{{ zuul.executor.log_root }}"
 
@@ -24,12 +24,12 @@
         - import_role: name=emit-job-report
         - import_role: name=buildset-artifacts-location
       vars:
-        zuul_log_url: "https://sftests.com/logs"
+        zuul_log_url: "https://ci.ops.openshift.com/logs"
         zuul_logserver_root: /var/www/logs
 
 - hosts: localhost
   ignore_errors: yes
   roles:
     - role: submit-logstash-jobs
-      logstash_gearman_server: "sftests.com"
+      logstash_gearman_server: "ci.ops.openshift.com"
       logstash_gearman_server_port: 4731

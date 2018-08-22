@@ -4,7 +4,7 @@ resources:
   tenants:
     local:
       description: "The local tenant."
-      url: "https://sftests.com/manage"
+      url: "https://ci.ops.openshift.com/manage"
       default-connection: local-git
 
   connections:

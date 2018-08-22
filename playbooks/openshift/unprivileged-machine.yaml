@@ -21,7 +21,7 @@
 
         - import_role: name=log-inventory
       vars:
-        zuul_log_url: "https://sftests.com/logs"
+        zuul_log_url: "https://ci.ops.openshift.com/logs"
 
     - name: Create src directory
       command: "oc exec {{ zuul_resources['pod'].pod }} mkdir src"
