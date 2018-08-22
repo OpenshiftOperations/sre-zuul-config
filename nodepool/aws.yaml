@@ -5,6 +5,7 @@ providers:
   - name: opstest
     driver: aws
     region: us-east-1
+    zuul-public-key: dmsimard_zuul
     pools:
       - name: main
         max-servers: 1
