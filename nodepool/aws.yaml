@@ -1,0 +1,15 @@
+labels:
+  - name: centos-ami
+
+providers:
+  - name: opstest
+    driver: aws
+    region: us-east-1
+    pools:
+      - name: main
+        max-servers: 1
+        labels:
+          - name: centos-ami
+            ami: ami-4bf3d731
+            flavor-name: t2.small
+            key-name: dmsimard_zuul
