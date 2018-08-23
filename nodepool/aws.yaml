@@ -1,16 +1,19 @@
 labels:
   - name: centos-ami
+    min-ready: 0
 
 providers:
   - name: opstest
     driver: aws
     region: us-east-1
-    zuul-public-key: dmsimard_zuul
     pools:
       - name: main
         max-servers: 1
+        security-group-id: sg-014bfe927b5f83281
+        subnet-id: subnet-015af9fab3b682c56
         labels:
           - name: centos-ami
             ami: ami-4bf3d731
             flavor-name: t2.small
             key-name: dmsimard_zuul
+            username: centos
