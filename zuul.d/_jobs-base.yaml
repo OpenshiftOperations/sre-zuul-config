@@ -7,7 +7,7 @@
     post-run:
       - playbooks/base/post.yaml
     roles:
-      - zuul: sf-jobs
+      - zuul: openshiftoperations/sre-zuul-jobs
       - zuul: zuul-jobs
     timeout: 1800
     # Set attempts to 1 until it's working well
@@ -28,7 +28,7 @@
     parent: base
     final: true
     allowed-projects:
-      - config
+      - openshiftoperations/sre-zuul-config
     description: Validate the config repo.
     run: playbooks/config/check.yaml
     post-run: playbooks/config/check-fetch-artifacts.yaml
@@ -44,7 +44,7 @@
     parent: base
     final: true
     allowed-projects:
-      - config
+      - openshiftoperations/sre-zuul-config
     description: Deploy config repo update.
     run: playbooks/config/update.yaml
     secrets:
@@ -54,7 +54,7 @@
       nodes: []
 
 - project:
-    name: config
+    name: openshiftoperations/sre-zuul-config
     check:
       jobs:
         - config-check
@@ -76,7 +76,7 @@
 
 
 - project:
-    name: sf-jobs
+    name: openshiftoperations/sre-zuul-jobs
     check:
       jobs:
         - linters

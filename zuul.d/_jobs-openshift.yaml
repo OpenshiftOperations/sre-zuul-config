@@ -11,7 +11,7 @@
     post-run:
       - playbooks/base/post.yaml
     roles:
-      - zuul: sf-jobs
+      - zuul: openshiftoperations/sre-zuul-jobs
       - zuul: zuul-jobs
     timeout: 1800
     # Set attempts to 1 until it's working well
